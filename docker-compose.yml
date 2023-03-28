@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    container_name: 'prod-backend'
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    env_file: /backend/.env
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: 'prod-database'
+    image: postgres:12.12-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file: .env
+
+  frontend:
+    container_name: 'prod-frontend'
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+      - '443:443'
+
+
