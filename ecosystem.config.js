@@ -18,7 +18,7 @@ module.exports = {
       path: DEPLOY_PATH,
       'pre-deploy-local': `scp .env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
       'post-deploy':
-        'rm -rf frontend && cd backend && npm i &&  npm run build && pm2 restart all',
+        'docker compose up',
     },
   },
 };
