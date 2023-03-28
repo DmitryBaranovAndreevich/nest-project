@@ -1,0 +1,22 @@
+{
+  "name": "web-plus-docker-and-compose",
+  "version": "1.0.0",
+  "description": "Перед тем как приступить к выполнению проектной работы разместите в репозитории исходный код фронтенд и бэкенд частей сервиса КупиПодариДай, реализованного вами ранее.",
+  "main": "ecosystem.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitryBaranovAndreevich/web-plus-docker-and-compose.git"
+  },
+  "author": "Dima Baranov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitryBaranovAndreevich/web-plus-docker-and-compose/issues"
+  },
+  "homepage": "https://github.com/DmitryBaranovAndreevich/web-plus-docker-and-compose#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
