@@ -1,4 +1,4 @@
-export const URL = 'http://mesto.baranov.nomoredomains.work:3001';
+export const URL = 'http://mesto.baranov.nomoredomains.work:3000';
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
