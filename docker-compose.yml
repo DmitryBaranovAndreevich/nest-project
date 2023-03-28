@@ -19,15 +19,16 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    enviroment:
-      POSTGRES_HOST=postgres
-      POSTGRES_PORT=5432
-      POSTGRES_DB=kupipodariday
-      POSTGRES_USER=student
-      POSTGRES_PASSWORD=student
-      PG_DATA=var/lib/postgresql/data
-      MYSQL=jllgshllWEUJHGHYJkjsfjds90
-      JWT_SECRET=secret
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=kupipodariday
+      - POSTGRES_USER=student
+      - POSTGRES_PASSWORD=student
+      - PG_DATA=var/lib/postgresql/data
+      - MYSQL=jllgshllWEUJHGHYJkjsfjds90
+      - JWT_SECRET=secret
+    env_file: .env
 
   frontend:
     container_name: 'prod-frontend'
