@@ -8,7 +8,7 @@ RUN npm run build
 
 FROM nginx:latest AS frontend
 COPY --from=builder /app/build /usr/share/nginx/html
-COPY nginx/conf.d/default.conf /etc/nginx/conf.d
+COPY /nginx /etc/nginx
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
