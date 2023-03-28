@@ -18,7 +18,7 @@ module.exports = {
       path: DEPLOY_PATH,
       'pre-deploy-local': `scp .env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
       'post-deploy':
-        'docker compose up',
+        'docker compose up --build',
     },
   },
 };
