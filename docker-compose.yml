@@ -27,6 +27,6 @@ services:
       context: frontend
       dockerfile: Dockerfile
     ports:
-      - '443:443'
+      - '81:80'
 
 
