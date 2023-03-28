@@ -20,14 +20,14 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      -POSTGRES_HOST="postgres"
-      -POSTGRES_PORT="5432"
-      -POSTGRES_DB="kupipodariday"
-      -POSTGRES_USER="student"
-      -POSTGRES_PASSWORD="student"
-      -PG_DATA="var/lib/postgresql/data"
-      -MYSQL="jllgshllWEUJHGHYJkjsfjds90"
-      -JWT_SECRET="secret"
+      POSTGRES_HOST=postgres
+      POSTGRES_PORT=5432
+      POSTGRES_DB=kupipodariday
+      POSTGRES_USER=student
+      POSTGRES_PASSWORD=student
+      PG_DATA=var/lib/postgresql/data
+      MYSQL=jllgshllWEUJHGHYJkjsfjds90
+      JWT_SECRET=secret
 
   frontend:
     container_name: 'prod-frontend'
