@@ -27,15 +27,15 @@ services:
       context: frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+      - ./frontend/nginx/conf.d:/etc/nginx/conf.d:ro
       - ./certbot/www:/var/www/certbot/:ro
     ports:
-      - '80:80/tcp'
-      - '443:443/tcp'
+      - '80:80'
+      - '443:443'
 
-  certbot:
-    container_name: 'certbot'
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+  # certbot:
+  #   container_name: 'certbot'
+  #   image: certbot/certbot:latest
+  #   volumes:
+  #     - ./certbot/www/:/var/www/certbot/:rw
+  #     - ./certbot/conf/:/etc/letsencrypt/:rw
