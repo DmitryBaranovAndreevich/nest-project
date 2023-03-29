@@ -44,8 +44,4 @@ services:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
     command:  certonly --webroot --webroot-payh=/var/www/html --email final-task@mail.ru --agree-tos --no-eff-email --staging -d api.mesto.baranov.nomoredomains.work -d   mesto.baranov.nomoredomains.work
-
-  volumes:
-    www-html:
-    dbfile:
-    etc-letsencrypt:
+    
