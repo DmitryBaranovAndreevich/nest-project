@@ -12,6 +12,12 @@ services:
       - '3000:3000'
     depends_on:
       - postgres
+    environment:
+      - POSTGRES_HOST="postgres"
+      - POSTGRES_PORT="5432"
+      - POSTGRES_DB="kupipodariday"
+      - POSTGRES_USER="student"
+      - POSTGRES_PASSWORD="student"
 
   postgres:
     container_name: 'prod-database'
@@ -20,6 +26,12 @@ services:
     ports:
       - "5432:5432"
     env_file: .env
+    environment:
+      - POSTGRES_HOST="postgres"
+      - POSTGRES_PORT="5432"
+      - POSTGRES_DB="kupipodariday"
+      - POSTGRES_USER="student"
+      - POSTGRES_PASSWORD="student"
 
   frontend:
     container_name: 'prod-frontend'
