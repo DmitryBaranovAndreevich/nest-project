@@ -1,40 +1,54 @@
 version: '3'
-
 services:
-  backend:
-    container_name: 'prod-backend'
-    build:
-      context: backend
-      dockerfile: Dockerfile
-    env_file: .env
-    restart: always
+  webserver:
+    image: nginx:latest
     ports:
-      - '3000:3000'
-    depends_on:
-      - postgres
-
-  postgres:
-    container_name: 'prod-database'
-    image: postgres:12.12-alpine
+      - 80:80
+      - 443:443
     restart: always
-    ports:
-      - "5432:5432"
-    env_file: .env
-
-  frontend:
-    container_name: 'prod-frontend'
-    build:
-      context: frontend
-      dockerfile: Dockerfile
     volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
-    ports:
-      - '80:80'
-      - '443:443'
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+
+
+# version: '3'
+
+# services:
+#   backend:
+#     container_name: 'prod-backend'
+#     build:
+#       context: backend
+#       dockerfile: Dockerfile
+#     env_file: .env
+#     restart: always
+#     ports:
+#       - '3000:3000'
+#     depends_on:
+#       - postgres
+
+#   postgres:
+#     container_name: 'prod-database'
+#     image: postgres:12.12-alpine
+#     restart: always
+#     ports:
+#       - "5432:5432"
+#     env_file: .env
+
+#   frontend:
+#     container_name: 'prod-frontend'
+#     build:
+#       context: frontend
+#       dockerfile: Dockerfile
+#     volumes:
+#       - ./frontend/nginx/conf.d:/etc/nginx/conf.d:ro
+#       - ./certbot/www:/var/www/certbot/:ro
+#       - ./certbot/conf/:/etc/nginx/ssl/:ro
+#     ports:
+#       - '80:80'
+#       - '443:443'
+#   certbot:
+#     image: certbot/certbot:latest
+#     volumes:
+#       - ./certbot/www/:/var/www/certbot/:rw
+#       - ./certbot/conf/:/etc/letsencrypt/:rw
