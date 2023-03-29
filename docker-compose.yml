@@ -28,20 +28,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend/nginx/conf.d:/etc/nginx/conf.d
-      - etc-letsencrypt:/etc/letsencrypt
     ports:
       - '80:80'
-      - '443:443'
-    depends_on:
-      - certbot
 
-  certbot:
-    image: certbot/cerbot
-    depends_on:
-      - nginx
-    container_name: cerbot
-    volumes:
-      - etc-letsencrypt:/etc/letsencrypt
-      - www-html:/var/www/html
-    command:  certonly --webroot --webroot-payh=/var/www/html --email final-task@mail.ru --agree-tos --no-eff-email --staging -d api.mesto.baranov.nomoredomains.work -d   mesto.baranov.nomoredomains.work
-    
+
