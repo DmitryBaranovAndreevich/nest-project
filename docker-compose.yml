@@ -30,10 +30,13 @@ services:
       - ./frontend/nginx/conf.d:/etc/nginx/conf.d
       - ./certbot/www:/var/www/certbot/:ro
     ports:
-      - '80:80'
-      - '443:443'
+      - '80:80/tcp'
+      - '443:443/tcp'
 
   certbot:
     image: certbot/cerbot:latest
+    auth:
+      username: DimaBSammi
+      password: 63d8c18fe658e07a5533f49e
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
