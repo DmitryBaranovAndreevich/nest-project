@@ -30,6 +30,7 @@ services:
       - ./frontend/nginx/conf.d:/etc/nginx/conf.d
     ports:
       - '80:80'
+      - '3008:3008'
 
 
  # certbot:
