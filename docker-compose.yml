@@ -26,8 +26,8 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    # volumes:
-    #   - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+    volumes:
+      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
     ports:
       - '80:80'
 
