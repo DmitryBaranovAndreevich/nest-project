@@ -27,9 +27,8 @@ services:
       context: frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+      - etc-letsencrypt:/etc/letsencrypt
     ports:
       - '80:80'
       - '443:443'
@@ -37,7 +36,16 @@ services:
       - certbot
 
   certbot:
-    image: certbot/cerbot:latest
+    image: certbot/cerbot
+    depends_on:
+      - nginx
+    container_name: cerbot
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
+      - etc-letsencrypt:/etc/letsencrypt
+      - www-html:/var/www/html
+    command:  certonly --webroot --webroot-payh=/var/www/html --email final-task@mail.ru --agree-tos --no-eff-email --staging -d api.mesto.baranov.nomoredomains.work -d   mesto.baranov.nomoredomains.work
+
+  volumes:
+    www-html:
+    dbfile:
+    etc-letsencrypt:
