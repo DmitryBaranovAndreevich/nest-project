@@ -35,8 +35,5 @@ services:
 
   certbot:
     image: certbot/cerbot:latest
-    auth:
-      username: DimaBSammi
-      password: 63d8c18fe658e07a5533f49e
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
