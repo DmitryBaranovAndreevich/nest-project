@@ -17,6 +17,8 @@ services:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
 
+# Certificate is saved at: /etc/letsencrypt/live/api.mesto.baranov.nomoredomains.work/fullchain.pem
+# Key is saved at:         /etc/letsencrypt/live/api.mesto.baranov.nomoredomains.work/privkey.pem
 
 # version: '3'
 
