@@ -22,8 +22,6 @@ services:
     ports:
       - "5432:5432"
     env_file: .env
-    # volumes:
-    #   - ./frontend/nginx/conf.d:/etc/nginx/conf.d
 
 
   frontend:
@@ -31,8 +29,8 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    # volumes:
-    #   - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+    volumes:
+      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
     ports:
       - '80:80'
       - '443:443'
