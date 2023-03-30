@@ -1,4 +1,4 @@
-export const URL = 'http://api.pm2.baranov.nomoredomains.work';
+export const URL = 'http://api.mesto.baranov.nomoredomains.work';
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
