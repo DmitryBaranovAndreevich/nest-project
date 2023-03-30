@@ -32,8 +32,8 @@ services:
       context: frontend
       dockerfile: Dockerfile
     volumes:
-      - /home/user-admin/frontend/nginx/conf.d:/etc/nginx/conf.d
-      - /home/user-admin/cerbot:/var/www
+      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+      - ./cerbot:/var/www
     ports:
       - '80:80'
       - '443:443'
