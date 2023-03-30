@@ -33,7 +33,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /frontend/nginx/conf.d:/etc/nginx/conf.d
-      - /var/www/certbot:/var/www
+      - /var/www/certbot:/var/backups
     ports:
       - '80:80'
       - '443:443'
