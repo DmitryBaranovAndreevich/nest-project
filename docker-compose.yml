@@ -12,8 +12,6 @@ services:
       - '3000:3000'
     depends_on:
       - postgres
-    volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
 
   postgres:
     container_name: 'prod-database'
