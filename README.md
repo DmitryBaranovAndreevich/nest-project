@@ -1,7 +1,7 @@
 # Докеризация приложения
 
-IP: 158.160.17.181 
 HOST https://mesto.baranov.nomoredomains.work
+IP: 158.160.17.181 
 
 Frontend https://mesto.baranov.nomoredomains.work
 Backend https://api.mesto.baranov.nomoredomains.work
