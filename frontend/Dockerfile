@@ -5,6 +5,7 @@ RUN npm install
 COPY . .
 RUN npm install
 RUN npm run build
+# RUN sudo mkdir -p /var/www/certbot/
 
 FROM nginx:latest AS frontend
 COPY --from=builder /app/build /usr/share/nginx/html
