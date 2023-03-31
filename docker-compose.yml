@@ -12,8 +12,6 @@ services:
       - '3000:3000'
     depends_on:
       - postgres
-    volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
 
   postgres:
     container_name: 'prod-database'
@@ -22,8 +20,6 @@ services:
     ports:
       - "5432:5432"
     env_file: .env
-    volumes:
-      - ./frontend/nginx/conf.d:/etc/nginx/conf.d
 
 
   frontend:
@@ -33,6 +29,14 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend/nginx/conf.d:/etc/nginx/conf.d
+      - ./frontend/certbot/www:/var/www/certbot/
+      - ./frontend/certbot/conf/:/etc/nginx/ssl/
     ports:
       - '80:80'
       - '443:443'
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./frontend/certbot/www:/var/www/certbot/
+      - ./frontend/certbot/conf/:/etc/letsencrypt/
