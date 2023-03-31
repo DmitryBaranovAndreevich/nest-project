@@ -12,4 +12,4 @@ pm2 deploy production setup
 pm2 deploy production
 -----------------------------
 для выпуска сертификатов на ваш домен:
-sudo docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d {ваш домен}
+sudo docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d mesto.baranov.nomoredomains.work
