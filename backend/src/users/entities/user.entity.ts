@@ -29,8 +29,7 @@ export class User {
   updatedAt: Date;
 
   @Column({
-    length: 30,
-    unique: true,
+    length: 30
   })
   @Length(2, 30)
   username: string;
